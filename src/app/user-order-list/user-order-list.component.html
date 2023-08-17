@@ -1,0 +1,182 @@
+<div style="margin: auto; width: 50%; padding-top: 50px">
+    <div>
+      <table>
+        <thead>
+        <th
+          style="
+              width: 200px;
+              padding: 10px;
+              text-align: center;
+              background-color: #d2d2d2;
+            "
+        >
+          ID
+        </th>
+        <th
+          style="
+              width: 400px;
+              padding: 10px;
+              text-align: center;
+              background-color: #d2d2d2;
+            "
+        >
+          Stock Ticker
+        </th>
+        <th
+          style="
+              width: 300px;
+              padding: 10px;
+              text-align: center;
+              background-color: #d2d2d2;
+            "
+        >
+          Price
+        </th>
+        <th
+          style="
+              width: 300px;
+              padding: 10px;
+              text-align: center;
+              background-color: #d2d2d2;
+            "
+        >
+          Volume
+        </th>
+        <th
+          style="
+              width: 300px;
+              padding: 10px;
+              text-align: center;
+              background-color: #d2d2d2;
+            "
+        >
+          Order Type
+        </th>
+        <th
+          style="
+              width: 300px;
+              padding: 10px;
+              text-align: center;
+              background-color: #d2d2d2;
+            "
+        >
+          Status Code
+        </th>
+        <th style="width: 100px; padding: 10px; background-color: #d2d2d2"></th>
+        <th style="width: 100px; padding: 10px; background-color: #d2d2d2"></th>
+        </thead>
+        <tbody>
+        <tr *ngFor="let order of orders" style="border: 2px solid black">
+          <td
+            style="
+                width: 200px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f0f0f0;
+              "
+          >
+            {{order.id}}
+          </td>
+          <td
+            style="
+                width: 400px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f0f0f0;
+              "
+          >
+            {{order.stockTicker}}
+          </td>
+          <td
+            style="
+                width: 300px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f0f0f0;
+              "
+          >
+            {{order.price}}
+          </td>
+          <td
+            style="
+                width: 300px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f0f0f0;
+              "
+          >
+            {{order.volume}}
+          </td>
+          <td
+            style="
+                width: 300px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f0f0f0;
+              "
+          >
+            {{order.buyOrSell}}
+          </td>
+          <td
+            style="
+                width: 300px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f0f0f0;
+              "
+          >
+            {{order.statusCode}}
+          </td>
+          <td
+            style="
+                width: 100px;
+                text-align: center;
+                padding: 10px;
+                background-color: #b9f3af;
+              "
+          >
+          <button
+          role="edit-order"
+          style="font-weight: bold; font-size: 16px"
+          (click)="editOrder(order)"
+        >
+          Edit
+        </button>
+          </td>
+          <td
+            style="
+                width: 100px;
+                text-align: center;
+                padding: 10px;
+                background-color: #f3afc0;
+              "
+          >
+          <button
+          role="delete-order"
+          style="font-weight: bold; font-size: 16px"
+          (click)="deleteOrder(order.id)"
+        >
+          Delete
+        </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <button
+              role="add-order"
+              (click)="addOrder()"
+              style="
+                  width: 150px;
+                  height: 50px;
+                  font-weight: bold;
+                  font-size: 16px;
+                  background-color: #b9f3af;
+                  margin-top: 50px; 
+                  float: right;
+                "
+            >
+              Add Order
+            </button>
+    </div>
+  </div>

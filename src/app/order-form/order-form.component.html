@@ -1,0 +1,256 @@
+<div style="margin: auto; width: 20%; padding-top: 100px">
+    <div
+      style="
+        margin-bottom: 35px;
+        font-size: 25px;
+        font-weight: bold;
+        text-transform: uppercase;
+      "
+    >
+      Add Order
+    </div>
+    <div>
+      <form [formGroup]="orderForm" (ngSubmit)="onSubmit()">
+        <table style="border: 1px solid black">
+          <thead>
+          <th
+            style="
+                width: 200px;
+                padding: 10px;
+                text-align: center;
+                background-color: #d2d2d2;
+              "
+            colspan="2"
+          >
+            Order
+          </th>
+          </thead>
+          <tbody>
+            <tr>
+                <td
+                  style="
+                      width: 200px;
+                      text-align: right;
+                      font-weight: bold;
+                      padding: 10px;
+                      background-color: #b9f3af;
+                    "
+                >
+                  Id
+                </td>
+                <td
+                  style="
+                      width: 200px;
+                      text-align: right;
+                      padding: 10px;
+                      background-color: #f0f0f0;
+                    "
+                >
+                  <input type="text" id="id" name="id" formControlName="id" />
+                </td>
+              </tr>
+          <tr>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  font-weight: bold;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              Stock Ticker
+            </td>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  padding: 10px;
+                  background-color: #f0f0f0;
+                "
+            >
+              <input type="text" id="stockTicker" name="stockTicker" formControlName="stockTicker" />
+              <div
+                style="color: red"
+                *ngIf="
+                    !orderForm.controls.stockTicker?.valid &&
+                    (orderForm.controls.stockTicker?.dirty ||
+                    orderForm.controls.stockTicker?.touched)
+                  "
+              >
+                The ticker name is not valid
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  font-weight: bold;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              Price
+            </td>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  padding: 10px;
+                  background-color: #f0f0f0;
+                "
+            >
+              <input type="number" id="price" name="price" formControlName="price" />
+  
+              <div
+                style="color: red"
+                *ngIf="
+                    !orderForm.controls.price?.valid &&
+                    (orderForm.controls.price?.dirty ||
+                    orderForm.controls.price?.touched)
+                  "
+              >
+                The price is not valid
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  font-weight: bold;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              Volume
+            </td>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  padding: 10px;
+                  background-color: #f0f0f0;
+                "
+            >
+              <input
+                type="number"
+                id="volume"
+                name="volume"
+                formControlName="volume"
+              />
+              <div
+                style="color: red"
+                *ngIf="
+                    !orderForm.controls.volume?.valid &&
+                    (orderForm.controls.volume?.dirty ||
+                    orderForm.controls.volume?.touched)
+                  "
+              >
+                The volume is not valid
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  font-weight: bold;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              Order Type
+            </td>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  padding: 10px;
+                  background-color: #f0f0f0;
+                "
+            >
+              <select id="buyOrSell" name="buyOrSell" size="2" formControlName="buyOrSell">
+                <option value="BUY">BUY</option>
+                <option value="SELL">SELL</option>
+              </select>
+              <div
+                style="color: red"
+                *ngIf="
+                    !orderForm.controls.buyOrSell?.valid &&
+                    (orderForm.controls.buyOrSell?.dirty ||
+                    orderForm.controls.buyOrSell?.touched)
+                  "
+              >
+                The order type is not valid
+              </div>
+            </td>
+          </tr>
+          
+          <tr>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  font-weight: bold;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              Status
+            </td>
+            <td
+              style="
+                  width: 200px;
+                  text-align: right;
+                  padding: 10px;
+                  background-color: #f0f0f0;
+                "
+            >
+              <input type="text" id="statusCode" name="statusCode" formControlName="statusCode" />
+            </td>
+          </tr>
+          <tr>
+            <td
+              style="
+                  width: 100px;
+                  text-align: center;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              <button
+                role="back"
+                style="font-weight: bold; font-size: 16px"
+                (click)="back()"
+              >
+                Back
+              </button>
+            </td>
+            <td
+              style="
+                  width: 100px;
+                  text-align: center;
+                  padding: 10px;
+                  background-color: #b9f3af;
+                "
+            >
+              <button
+                role="save"
+                style="font-weight: bold; font-size: 16px"
+                type="submit"
+                [disabled]="!orderForm.valid"
+              >
+                Save
+              </button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </form>
+    </div>
+  </div>
